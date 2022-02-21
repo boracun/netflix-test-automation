@@ -2,6 +2,15 @@ const {Builder, By, Key} = require("selenium-webdriver");
 const assert = require("assert");
 const { lstat } = require("fs");
 
+runTestsOneByOne();
+
+async function runTestsOneByOne()
+{
+    await checkCountryCodes();
+    await checkAllASCII();
+}
+
+//clicks each country code in the code list to check if they all return the expected values
 async function checkCountryCodes()
 {
     let driver = await new Builder().forBrowser("chrome").build();
@@ -9,23 +18,34 @@ async function checkCountryCodes()
     await driver.get("https://www.netflix.com/tr/Login");
 
     await driver.findElement(By.name("userLoginId")).sendKeys(0);
-    /*let countryCode = await driver.findElement(By.xpath("//em[last()]")).getText().then(function(value) {
-        return value;
-    });*/
+    await driver.findElement(By.className("ui-select-wrapper-link")).click();
+    var countries = await driver.findElements(By.xpath("//em"));
+    await driver.findElement(By.className("ui-select-wrapper-link")).click();
+    
+    for(let i = 0; i < countries.length; i++)
+    {
+        await driver.findElement(By.className("ui-select-wrapper-link")).click();
+        let expectedCode = await countries[i].getText().then(function(value) {
+            return value;
+        });
+        await countries[i].click();
+        let actualCode = await driver.findElement(By.className("country-select-code")).getText().then(function(value) {
+            return value;
+        });
 
-    let countryCodes = await driver.findElements(By.className("country-code"));
-
-    console.log(countryCodes[2].getText().then(function(value) {
-        return value;
-    }));
-
-    /*let countryCode = await driver.findElement(By.xpath("//li[first()]")).getText().then(function(value) {
-        return value;
-    });*/
-
-    //assert.strictEqual(searchText, "selenium");
-
-    //await driver.quit();
+        try
+        {
+            assert.strictEqual(actualCode, expectedCode);
+        }
+        catch (err) 
+        {
+            console.log("Test case #1 failed: The country code at index " + i + " returns a wrong code when clicked.");
+            await driver.quit();
+        }
+    }
+    
+    console.log("Test case #1 is successful.");
+    await driver.quit();
 }
 
 //try to insert all printable ascii characters
@@ -37,7 +57,7 @@ async function checkAllASCII()
 
     let inputText = "";
 
-    for(asciiCode = 32; asciiCode < 127; asciiCode++)
+    for(let asciiCode = 32; asciiCode < 127; asciiCode++)
     {
         inputText += String.fromCharCode(asciiCode);
         await driver.findElement(By.name("userLoginId")).sendKeys(String.fromCharCode(asciiCode));
@@ -72,6 +92,3 @@ async function checkAllASCII()
 
     await driver.quit();
 }
-
-//checkCountryCodes();
-checkAllASCII();
