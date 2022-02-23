@@ -8,9 +8,9 @@ runTestsOneByOne();
 
 async function runTestsOneByOne()
 {
+    await checkButtonDisableFacebookLogin();
     await checkCountryCodes();
     await checkAllASCII();
-    await checkButtonDisableFacebookLogin();
 }
 
 //clicks each country code in the code list to check if they all return the expected values
