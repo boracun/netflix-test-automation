@@ -2,16 +2,18 @@
 function validate(){
     var e_mail= document.getElementById("email").value;
     var passw = document.getElementById("password").value;
-    if(e_mail =="metehan"){
-        if( passw == "886"){
-            alert("Sign in successful!");
-            localStorage.setItem("loginError", "false");
-            return true;
+    if ((e_mail.length <= 50 && e_mail.length >= 5) && (passw.length <= 60 && passw.length >= 4)) {
+        if(e_mail =="metehan"){
+            if( passw == "8866"){
+                alert("Sign in successful!");
+                localStorage.setItem("loginError", "false");
+                return true;
+            }
         }
-    }
-    else{
-        localStorage.setItem("loginError", "true");
-        return false;
+        else{
+            localStorage.setItem("loginError", "true");
+            return false;
+        }
     }
     return false;
 
@@ -35,5 +37,5 @@ function showLoginError() {
 }
 
 function onRefresh() {
-    localStorage.setItem("loginError", "false");
+
 }
