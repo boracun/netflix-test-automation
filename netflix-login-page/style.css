@@ -72,10 +72,15 @@ body{
     
 }
 
-
-.logIn input[type = text]  {
+.logIn div {
     margin-bottom: 25px;
     border-radius: 12px;
+    background-color: blue;
+}
+
+
+.logIn input[type = text]  {
+    width: 75%;
 }     
 
 .login input[type = submit]{
