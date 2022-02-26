@@ -16,6 +16,16 @@ body{
 }
 
 
+.loginError{
+    background-color: #e87c03;
+    font-size: 14px;
+    padding: 10px 20px;
+    vertical-align: middle;
+    color: #fff;
+    margin: 0 0 16px;
+    border-radius: 4px;
+}
+
 .wrapper{
     background-image: url(./images/login_background.jpg);
     height: 100vh;
