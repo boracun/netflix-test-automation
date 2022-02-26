@@ -9,7 +9,11 @@ runTestsOneByOne();
 
 async function runTestsOneByOne()
 {
+    await checkButtonDisableFacebookLogin();
+    await checkCountryCodes();
+    await checkAllASCII();
     await checkLengthConstraints();
+    await checkElementLoss();
 }
 
 //clicks each country code in the code list to check if they all return the expected values
@@ -101,11 +105,11 @@ async function checkButtonDisableFacebookLogin() {
     await driver.manage().window().maximize();
     await driver.get("https://www.netflix.com/tr/Login");
     await driver.findElement(By.className("btn minimal-login btn-submit btn-small")).click();
-    await driver.sleep(5000);
+    await driver.sleep(1000);
 
     let windows = await driver.getAllWindowHandles();
     await driver.switchTo().window(windows[1]);
-    await driver.findElement(By.name("login")).click();
+    await driver.sleep(1000);
     await driver.findElement(By.name("login")).click();
     let value = await driver.findElement(By.name("login")).isEnabled();
 
@@ -116,13 +120,14 @@ async function checkButtonDisableFacebookLogin() {
     }
     catch (err) 
     {
-        console.log("Test case #2 failed: Login button is not disabled and clicked repeatedly.");
+        console.log("Test case #2 failed: Login button is not disabled and might be clicked repeatedly.");
     }
 
     await driver.quit();
 }
 
-//TEST CASE 3: Check that the length constraints for the input field are correct for the first 100 characters. (Length between 5 and 50 is valid)
+//TEST CASE 3: Check that the length constraints for the input field are correct for the first 60 characters for email (Length between 5 and 50 is valid)
+//and for 70 characters for password (Length between 4 and 60 is valid).
 async function checkLengthConstraints() {
     let driver = await new Builder().forBrowser("chrome").build();
     await driver.manage().window().maximize();
@@ -137,7 +142,7 @@ async function checkLengthConstraints() {
         if ((i >= 5 && i <= 50) || i == 0) {
             try {
                 await driver.findElement(By.className("inputError"));
-                console.log("Test case #3 failed.");
+                console.log("Test case #3 failed, email constraints are violated.");
                 await driver.quit();
             }
             catch (err) {
@@ -149,7 +154,7 @@ async function checkLengthConstraints() {
                 await driver.findElement(By.className("inputError"));
             }
             catch (err) {
-                console.log("Test case #3 failed.");
+                console.log("Test case #3 failed, email constraints are violated.");
                 await driver.quit();
             }
         }
@@ -168,7 +173,7 @@ async function checkLengthConstraints() {
         if ((i >= 4 && i <= 60) || i == 0) {
             try {
                 await driver.findElement(By.className("inputError"));
-                console.log("Test case #3 failed.");
+                console.log("Test case #3 failed, password constraints are violated.");
                 await driver.quit();
             }
             catch (err) {
@@ -180,7 +185,7 @@ async function checkLengthConstraints() {
                 await driver.findElement(By.className("inputError"));
             }
             catch (err) {
-                console.log("Test case #3 failed.");
+                console.log("Test case #3 failed, password constraints are violated.");
                 await driver.quit();
             }
         }
@@ -189,5 +194,39 @@ async function checkLengthConstraints() {
 
     console.log("Test case #3 is successful.");
 
+    await driver.quit();
+}
+
+//TEST CASE 4: Check that all the existing elements are still present after clicking facebook button and clicking login button with a 5 length input for password and email
+async function checkElementLoss() {
+    let driver = await new Builder().forBrowser("chrome").build();
+    await driver.manage().window().maximize();
+    await driver.get("https://www.netflix.com/tr/Login");
+    let afterSet = new Set();
+    let priorArr = [];
+    let allElementsPrior = await driver.findElements(By.xpath("//*"));
+    for (let i = 0; i < allElementsPrior; i++) {
+        allElementsPrior[i].id_.then((id) => {priorArr[i] = id;});
+    }
+
+    await driver.findElement(By.name("password")).sendKeys("abcde");
+    await driver.findElement(By.name("userLoginId")).sendKeys("abcde");
+    await driver.findElement(By.className("btn minimal-login btn-submit btn-small")).click();
+    await driver.findElement(By.className("btn login-button btn-submit btn-small")).click();
+    await driver.sleep(5000);
+
+    let allElementsAfter = await driver.findElements(By.xpath("//*"));
+    for (let i = 0; i < allElementsAfter; i++) {
+        allElementsPrior[i].id_.then((id) => {afterSet.add(id)});
+    }
+
+    for (let i = 0; i < priorArr.length; i++) {
+        if (!afterSet.has(priorArr[i])) {
+            console.log("Test case #4 failed, some elements are lost.");
+            await driver.quit();
+        }
+    }
+
+    console.log("Test case #4 is successful.");
     await driver.quit();
 }
