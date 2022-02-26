@@ -11,12 +11,39 @@ async function runTestsOneByOne()
 {
     await checkButtonDisableFacebookLogin();
     await checkCountryCodes();
-    await checkAllASCII();
     await checkLengthConstraints();
     await checkElementLoss();
+    await checkAllASCII();
 }
 
-//clicks each country code in the code list to check if they all return the expected values
+//TEST CASE 1: The user should not be able to click the Facebook login button repeatedly
+async function checkButtonDisableFacebookLogin() {
+    let driver = await new Builder().forBrowser("chrome").build();
+    await driver.manage().window().maximize();
+    await driver.get("https://www.netflix.com/tr/Login");
+    await driver.findElement(By.className("btn minimal-login btn-submit btn-small")).click();
+    await driver.sleep(1000);
+
+    let windows = await driver.getAllWindowHandles();
+    await driver.switchTo().window(windows[1]);
+    await driver.sleep(1000);
+    await driver.findElement(By.name("login")).click();
+    let value = await driver.findElement(By.name("login")).isEnabled();
+
+    try
+    {
+        assert.strictEqual(value, true);
+        console.log("Test case #1 is successful.");
+    }
+    catch (err) 
+    {
+        console.log("Test case #1 failed: Login button is not disabled and might be clicked repeatedly.");
+    }
+
+    await driver.quit();
+}
+
+//TEST CASE 2: Check that all the codes in the country code list add the respective code to the phone number.
 async function checkCountryCodes()
 {
     let driver = await new Builder().forBrowser("chrome").build();
@@ -45,84 +72,12 @@ async function checkCountryCodes()
         }
         catch (err) 
         {
-            console.log("Test case #1 failed: The country code at index " + i + " returns a wrong code when clicked.");
+            console.log("Test case #2 failed: The country code at index " + i + " returns a wrong code when clicked.");
             await driver.quit();
         }
     }
     
-    console.log("Test case #1 is successful.");
-    await driver.quit();
-}
-
-//try to insert all printable ascii characters
-async function checkAllASCII() 
-{
-    let driver = await new Builder().forBrowser("chrome").build();
-    await driver.manage().window().maximize();
-    await driver.get("https://www.netflix.com/tr/Login");
-
-    let inputText = "";
-
-    for(let asciiCode = 32; asciiCode < 127; asciiCode++)
-    {
-        inputText += String.fromCharCode(asciiCode);
-        await driver.findElement(By.name("userLoginId")).sendKeys(String.fromCharCode(asciiCode));
-        await driver.findElement(By.name("password")).sendKeys(String.fromCharCode(asciiCode));
-    }
-
-    let userId = await driver.findElement(By.name("userLoginId")).getAttribute("value").then(function(value) {
-        return value;
-    });
-
-    let password = await driver.findElement(By.name("password")).getAttribute("value").then(function(value) {
-        return value;
-    });
-
-    try
-    {
-        assert.strictEqual(userId, inputText);
-        try
-        {
-            assert.strictEqual(password, inputText);
-            console.log("Test case #5 is successful.");
-        }
-        catch (err) 
-        {
-            console.log("Test case #5 failed: The expected and actual user passwords do not match.");
-        }
-    }
-    catch (err) 
-    {
-        console.log("Test case #5 failed: The expected and actual user IDs do not match.");
-    }
-
-    await driver.quit();
-}
-
-//TEST CASE 2: The user should not be able to click the Facebook login button repeatedly
-async function checkButtonDisableFacebookLogin() {
-    let driver = await new Builder().forBrowser("chrome").build();
-    await driver.manage().window().maximize();
-    await driver.get("https://www.netflix.com/tr/Login");
-    await driver.findElement(By.className("btn minimal-login btn-submit btn-small")).click();
-    await driver.sleep(1000);
-
-    let windows = await driver.getAllWindowHandles();
-    await driver.switchTo().window(windows[1]);
-    await driver.sleep(1000);
-    await driver.findElement(By.name("login")).click();
-    let value = await driver.findElement(By.name("login")).isEnabled();
-
-    try
-    {
-        assert.strictEqual(value, true);
-        console.log("Test case #2 is successful.");
-    }
-    catch (err) 
-    {
-        console.log("Test case #2 failed: Login button is not disabled and might be clicked repeatedly.");
-    }
-
+    console.log("Test case #2 is successful.");
     await driver.quit();
 }
 
@@ -228,5 +183,51 @@ async function checkElementLoss() {
     }
 
     console.log("Test case #4 is successful.");
+    await driver.quit();
+}
+
+//TEST CASE 5: Check that all ASCII characters can be inserted to both text fields.
+//try to insert all printable ascii characters
+async function checkAllASCII() 
+{
+    let driver = await new Builder().forBrowser("chrome").build();
+    await driver.manage().window().maximize();
+    await driver.get("https://www.netflix.com/tr/Login");
+
+    let inputText = "";
+
+    for(let asciiCode = 32; asciiCode < 127; asciiCode++)
+    {
+        inputText += String.fromCharCode(asciiCode);
+        await driver.findElement(By.name("userLoginId")).sendKeys(String.fromCharCode(asciiCode));
+        await driver.findElement(By.name("password")).sendKeys(String.fromCharCode(asciiCode));
+    }
+
+    let userId = await driver.findElement(By.name("userLoginId")).getAttribute("value").then(function(value) {
+        return value;
+    });
+
+    let password = await driver.findElement(By.name("password")).getAttribute("value").then(function(value) {
+        return value;
+    });
+
+    try
+    {
+        assert.strictEqual(userId, inputText);
+        try
+        {
+            assert.strictEqual(password, inputText);
+            console.log("Test case #5 is successful.");
+        }
+        catch (err) 
+        {
+            console.log("Test case #5 failed: The expected and actual user passwords do not match.");
+        }
+    }
+    catch (err) 
+    {
+        console.log("Test case #5 failed: The expected and actual user IDs do not match.");
+    }
+
     await driver.quit();
 }
