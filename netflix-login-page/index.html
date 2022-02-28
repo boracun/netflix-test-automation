@@ -26,8 +26,12 @@
                      </script>
                 </div>
                 <form class ="logIn"  action="index.html" method = "post">
-                    <input type="text" name ="" value = "" placeholder="Enter an email or phone number" id = "email" onfocus="myFunction(this)">
-                    <input type="text" name =""placeholder= "Enter password" id = "password">
+                    <input type="text" name ="" value = "" placeholder="Enter an email or phone number" id = "email" onkeydown="emailFieldChange();" onfocusout="emailUnfocused()" onfocus="emailFocused()">
+                    <div id="email-error-div">
+                    </div>
+                    <input type="text" name =""placeholder= "Enter password" id = "password" onkeydown="passFieldChange();" onfocusout="passUnfocused()" onfocus="passFocused()">
+                    <div id="pass-error-div">
+                    </div>
                     <input type="submit" name= "" value = "Sign In" id = "signIn" onclick = "validate()">
                 </form>
               
