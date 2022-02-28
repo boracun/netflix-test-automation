@@ -9,7 +9,7 @@
     <script src = "login.js"></script>
 
 </head>
-<body>
+<body onload="onRefresh();">
     <div class="wrapper">
         <div class="header">
             <div class="logo">
@@ -20,13 +20,21 @@
         <div class="login_body">
             <div class="login_box">
                 <h2>Sign in</h2>
-
+                <div id="login-error-div">
+                    <script type="text/javascript">
+                        showLoginError();
+                     </script>
+                </div>
                 <form class ="logIn"  action="index.html" method = "post">
                     <div class="logIn">
-                        <input type="text" name ="" value = "" placeholder="Enter an email or phone number" id = "email" onfocus="myFunction(this)">
+                        <input type="text" name ="" value = "" placeholder="Enter an email or phone number" id = "email" onkeydown="emailFieldChange();" onfocusout="emailUnfocused()" onfocus="emailFocused()">
+                        <div id="email-error-div">
+                        </div>
                     </div>
                     <div class="logIn">
-                        <input type="password" name ="" placeholder= "Enter password" id = "password">
+                        <input type="password" name =""placeholder= "Enter password" id = "password" onkeydown="passFieldChange();" onfocusout="passUnfocused()" onfocus="passFocused()">
+                        <div id="pass-error-div">
+                        </div>
                     </div>
                     
                     <input type="submit" name= "" value = "Sign In" id = "signIn" onclick = "validate()">
