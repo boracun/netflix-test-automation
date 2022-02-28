@@ -121,7 +121,7 @@ body{
 }
 
 #select-field {
-    width: 100%;
+    width: 75%;
     height: 50px;
     padding: 15px 20px;
     margin-bottom: 30px;
@@ -134,9 +134,13 @@ body{
 }
 
 #list {
-    width: 100%;
+    width: 56%;
     background: rgba(255, 255, 255, 0.7);
     overflow: hidden;
+    position: absolute;
+
+    margin-top: 50px;
+    right: 95px;
 }
 
 .options {
