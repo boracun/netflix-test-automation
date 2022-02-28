@@ -1,4 +1,11 @@
 
+function onRefresh() {
+    sessionStorage.setItem("emailFocus", "false");
+    sessionStorage.setItem("emailErrorOpen", "false");
+    sessionStorage.setItem("passFocus", "false");
+    sessionStorage.setItem("passErrorOpen", "false");
+}
+
 function validate(){
     var e_mail= document.getElementById("email").value;
     var passw = document.getElementById("password").value;
@@ -6,18 +13,70 @@ function validate(){
         if(e_mail =="metehan"){
             if( passw == "8866"){
                 alert("Sign in successful!");
-                window.open("E:/dersvural/458/netflix-test-automation/netflix-login-page/welcome.html")
-                localStorage.setItem("loginError", "false");
-                return true;
+                sessionStorage.setItem("loginError", "false");
             }
         }
         else{
-            localStorage.setItem("loginError", "true");
-            return false;
+            sessionStorage.setItem("loginError", "true");
         }
+        location.reload();
+    }
+    else {
+        showEmailError();
+        showPassError();
     }
     return false;
+}
 
+function showEmailError() {
+        if (true) {
+            if (document.getElementById("email").value.length < 5 || document.getElementById("email").value.length > 50) {
+                if (document.getElementsByClassName("emailError").length === 0) {
+                    let loginErrorDiv = document.getElementById("email-error-div");
+                    let insertedElement = document.createElement('div');
+                    insertedElement.className = "emailError";
+                    if (document.getElementById("email").value.length === 0) {
+                        insertedElement.innerHTML = 'Lütfen geçerli bir telefon numarası veya e‑posta adresi girin.';
+                    }
+                    else {
+                        insertedElement.innerHTML = 'Lütfen geçerli bir e‑posta adresi girin.';
+                    }
+                    loginErrorDiv.appendChild(insertedElement);
+                }
+                else {
+                    let insertedElement = document.getElementsByClassName("emailError")[0];
+                    if (document.getElementById("email").value.length === 0) {
+                        insertedElement.innerHTML = 'Lütfen geçerli bir telefon numarası veya e‑posta adresi girin.';
+                    }
+                    else {
+                        insertedElement.innerHTML = 'Lütfen geçerli bir e‑posta adresi girin.';
+                    }
+                }
+            }
+            else {
+                let el = document.getElementsByClassName("emailError");
+                el[0].remove();
+            }
+        }
+    
+}
+
+function showPassError() {
+    if (true) {
+        if (document.getElementById("password").value.length < 4 || document.getElementById("password").value.length > 60) {
+            if (document.getElementsByClassName("passError").length === 0) {
+                let loginErrorDiv = document.getElementById("pass-error-div");
+                let insertedElement = document.createElement('div');
+                insertedElement.className = "passError";
+                insertedElement.innerHTML = 'Parolanız 4 ila 60 karakter olmalıdır.';
+                loginErrorDiv.appendChild(insertedElement);
+            }
+        }
+        else {
+            let el = document.getElementsByClassName("passError");
+            el[0].remove();
+        }
+    }
 }
 
 
@@ -27,8 +86,7 @@ function myFunction(x){
 }
 
 function showLoginError() {
-    if (localStorage.getItem("loginError") == "true") {
-        console.log("a");
+    if (sessionStorage.getItem("loginError") == "true") {
         let loginErrorDiv = document.getElementById("login-error-div");
         let insertedElement = document.createElement('div');
         insertedElement.className = "loginError";
@@ -37,21 +95,13 @@ function showLoginError() {
     }
 }
 
-function onRefresh() {
-    localStorage.setItem("loginError", "false");
-    localStorage.setItem("emailFocus", "false");
-    localStorage.setItem("emailErrorOpen", "false");
-    localStorage.setItem("passFocus", "false");
-    localStorage.setItem("passErrorOpen", "false");
-}
-
 function bodyClick(event) {
     console.log(event);
 }
 
 
 function emailFieldChange() {
-    if (localStorage.getItem("emailErrorOpen") == "true") {
+    if (sessionStorage.getItem("emailErrorOpen") == "true") {
         if (checkIsEmail(document.getElementById("email").value)) {
             if (document.getElementById("email").value.length < 5 || document.getElementById("email").value.length > 50) {
                 if (document.getElementsByClassName("emailError").length === 0) {
@@ -114,9 +164,9 @@ function emailFieldChange() {
 }
 
 function emailUnfocused(){
-    if (localStorage.getItem("emailFocus") == "true") {
+    if (sessionStorage.getItem("emailFocus") == "true") {
         if (document.getElementById("email").value.length < 5 || document.getElementById("email").value.length > 50) {
-            localStorage.setItem("emailErrorOpen", "true");
+            sessionStorage.setItem("emailErrorOpen", "true");
             if (document.getElementsByClassName("emailError").length === 0) {
                 let loginErrorDiv = document.getElementById("email-error-div");
                 let insertedElement = document.createElement('div');
@@ -144,7 +194,7 @@ function emailUnfocused(){
 }
 
 function passFieldChange() {
-    if (localStorage.getItem("passErrorOpen") == "true") {
+    if (sessionStorage.getItem("passErrorOpen") == "true") {
         
         if (document.getElementById("password").value.length < 4 || document.getElementById("password").value.length > 60) {
             if (document.getElementsByClassName("passError").length === 0) {
@@ -163,9 +213,9 @@ function passFieldChange() {
 }
 
 function passUnfocused(){
-    if (localStorage.getItem("passFocus") == "true") {
+    if (sessionStorage.getItem("passFocus") == "true") {
         if (document.getElementById("password").value.length < 4 || document.getElementById("password").value.length > 60) {
-            localStorage.setItem("passErrorOpen", "true");
+            sessionStorage.setItem("passErrorOpen", "true");
             if (document.getElementsByClassName("passError").length === 0) {
                 let loginErrorDiv = document.getElementById("pass-error-div");
                 let insertedElement = document.createElement('div');
@@ -178,11 +228,11 @@ function passUnfocused(){
 }
 
 function emailFocused(){
-    localStorage.setItem("emailFocus", "true");
+    sessionStorage.setItem("emailFocus", "true");
 }
 
 function passFocused(){
-    localStorage.setItem("passFocus", "true");
+    sessionStorage.setItem("passFocus", "true");
 }
 
 function checkIsEmail(input) {
