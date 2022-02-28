@@ -100,10 +100,16 @@ body{
     
 }
 
-
-.logIn input[type = text]  {
+.logIn div {
     margin-bottom: 25px;
     border-radius: 12px;
+    display: flex;
+    flex-direction: row;
+}
+
+
+.logIn input[type = text]  {
+    width: 75%;
 }     
 
 .login input[type = button]{
@@ -113,6 +119,83 @@ body{
 
 .login_button{
     margin-bottom: 10px;
+}
+.selector {
+    width: 88px;
+}
+
+#select-field {
+    width: 75%;
+    height: 50px;
+    padding: 15px 10px;
+    margin-bottom: 30px;
+
+    box-sizing: border-box;
+    background: #333;
+    color: #8c8c8c;
+    font-size: smaller;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    border-radius: 0px;
+}
+
+#list {
+    width: 56%;
+    height: 300px;
+    background: #595959;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    position: absolute;
+    color: white;
+
+    margin-top: 50px;
+    right: 95px;
+}
+
+.options {
+    width: 105%;
+    margin-left: 10px;
+    padding: 5px;
+    list-style: none;
+    cursor: pointer;
+    box-sizing: border-box;
+    position: relative;
+    left: -38px;
+}
+
+.options:hover {
+    background: #737373;
+}
+
+li > p {
+    font-weight: 700;
+    font-size: small;
+    margin-left: 15px;
+}
+
+.hide {
+    visibility: hidden;
+}
+
+/*For images
+.options img {
+    width: 25px;
+    position: absolute;
+    top: 12px;
+    left: 25px;
+}
+*/
+
+/*Only for test*/
+.main-div {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: orange;
 }
 
 
