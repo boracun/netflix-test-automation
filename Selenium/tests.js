@@ -12,8 +12,8 @@ async function runTestsOneByOne()
     //await checkButtonDisableFacebookLogin();
     //await checkCountryCodes();
     await checkLengthConstraints();
-    //await checkElementLoss();
-    //await checkAllASCII();
+    await checkElementLoss();
+    await checkAllASCII();
 }
 
 //TEST CASE 1: The user should not be able to click the Facebook login button repeatedly
@@ -156,7 +156,7 @@ async function checkLengthConstraints() {
 async function checkElementLoss() {
     let driver = await new Builder().forBrowser("chrome").build();
     await driver.manage().window().maximize();
-    await driver.get("https://www.netflix.com/tr/Login");
+    await driver.get("http://localhost/netflix-test-automation/netflix-login-page");
     let afterSet = new Set();
     let priorArr = [];
     let allElementsPrior = await driver.findElements(By.xpath("//*"));
@@ -164,10 +164,10 @@ async function checkElementLoss() {
         allElementsPrior[i].id_.then((id) => {priorArr[i] = id;});
     }
 
-    await driver.findElement(By.name("password")).sendKeys("abcde");
-    await driver.findElement(By.name("userLoginId")).sendKeys("abcde");
-    await driver.findElement(By.className("btn minimal-login btn-submit btn-small")).click();
-    await driver.findElement(By.className("btn login-button btn-submit btn-small")).click();
+    await driver.findElement(By.id("password")).sendKeys("abcde");
+    await driver.findElement(By.id("email")).sendKeys("abcde");
+    await driver.findElement(By.id("signIn")).click();
+    await driver.findElement(By.id("signIn")).click();
     await driver.sleep(5000);
 
     let allElementsAfter = await driver.findElements(By.xpath("//*"));
@@ -192,22 +192,22 @@ async function checkAllASCII()
 {
     let driver = await new Builder().forBrowser("chrome").build();
     await driver.manage().window().maximize();
-    await driver.get("https://www.netflix.com/tr/Login");
+    await driver.get("http://localhost/netflix-test-automation/netflix-login-page");
 
     let inputText = "";
 
     for(let asciiCode = 32; asciiCode < 127; asciiCode++)
     {
         inputText += String.fromCharCode(asciiCode);
-        await driver.findElement(By.name("userLoginId")).sendKeys(String.fromCharCode(asciiCode));
-        await driver.findElement(By.name("password")).sendKeys(String.fromCharCode(asciiCode));
+        await driver.findElement(By.id("email")).sendKeys(String.fromCharCode(asciiCode));
+        await driver.findElement(By.id("password")).sendKeys(String.fromCharCode(asciiCode));
     }
 
-    let userId = await driver.findElement(By.name("userLoginId")).getAttribute("value").then(function(value) {
+    let userId = await driver.findElement(By.id("email")).getAttribute("value").then(function(value) {
         return value;
     });
 
-    let password = await driver.findElement(By.name("password")).getAttribute("value").then(function(value) {
+    let password = await driver.findElement(By.id("password")).getAttribute("value").then(function(value) {
         return value;
     });
 
