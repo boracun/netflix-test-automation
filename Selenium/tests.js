@@ -9,18 +9,18 @@ runTestsOneByOne();
 
 async function runTestsOneByOne()
 {
-    await checkButtonDisableFacebookLogin();
-    await checkCountryCodes();
+    //await checkButtonDisableFacebookLogin();
+    //await checkCountryCodes();
     await checkLengthConstraints();
-    await checkElementLoss();
-    await checkAllASCII();
+    //await checkElementLoss();
+    //await checkAllASCII();
 }
 
 //TEST CASE 1: The user should not be able to click the Facebook login button repeatedly
 async function checkButtonDisableFacebookLogin() {
     let driver = await new Builder().forBrowser("chrome").build();
     await driver.manage().window().maximize();
-    await driver.get("https://www.netflix.com/tr/Login");
+    await driver.get("http://localhost/netflix-login-page");
     await driver.findElement(By.className("btn minimal-login btn-submit btn-small")).click();
     await driver.sleep(1000);
 
@@ -86,17 +86,17 @@ async function checkCountryCodes()
 async function checkLengthConstraints() {
     let driver = await new Builder().forBrowser("chrome").build();
     await driver.manage().window().maximize();
-    await driver.get("https://www.netflix.com/tr/Login");
-    await driver.findElement(By.name("password")).sendKeys("abcde");
+    await driver.get("http://localhost/netflix-test-automation/netflix-login-page");
+    await driver.findElement(By.id("password")).sendKeys("abcde");
 
     for(let i = 0; i < 60; i++) {
 
-        let el = await driver.findElement(By.className("concord-img vlv-creative"));
+        let el = await driver.findElement(By.className("header"));
         await new Actions(driver).move(el).click().perform();
         
         if ((i >= 5 && i <= 50) || i == 0) {
             try {
-                await driver.findElement(By.className("inputError"));
+                await driver.findElement(By.className("emailError"));
                 console.log("Test case #3 failed, email constraints are violated.");
                 await driver.quit();
             }
@@ -106,28 +106,28 @@ async function checkLengthConstraints() {
         }
         else {
             try {
-                await driver.findElement(By.className("inputError"));
+                await driver.findElement(By.className("emailError"));
             }
             catch (err) {
                 console.log("Test case #3 failed, email constraints are violated.");
                 await driver.quit();
             }
         }
-        await driver.findElement(By.name("userLoginId")).sendKeys("a");
+        await driver.findElement(By.id("email")).sendKeys("a");
     }
 
     await driver.navigate().refresh();
 
-    await driver.findElement(By.name("userLoginId")).sendKeys("abcde");
+    await driver.findElement(By.id("email")).sendKeys("abcde");
 
     for(let i = 0; i < 70; i++) {
 
-        let el = await driver.findElement(By.className("concord-img vlv-creative"));
+        let el = await driver.findElement(By.className("header"));
         await new Actions(driver).move(el).click().perform();
         
         if ((i >= 4 && i <= 60) || i == 0) {
             try {
-                await driver.findElement(By.className("inputError"));
+                await driver.findElement(By.className("passError"));
                 console.log("Test case #3 failed, password constraints are violated.");
                 await driver.quit();
             }
@@ -137,14 +137,14 @@ async function checkLengthConstraints() {
         }
         else {
             try {
-                await driver.findElement(By.className("inputError"));
+                await driver.findElement(By.className("passError"));
             }
             catch (err) {
                 console.log("Test case #3 failed, password constraints are violated.");
                 await driver.quit();
             }
         }
-        await driver.findElement(By.name("password")).sendKeys("a");
+        await driver.findElement(By.id("password")).sendKeys("a");
     }
 
     console.log("Test case #3 is successful.");
