@@ -211,7 +211,8 @@ function handleCountryList() {
     });
 
     options.forEach(option => option.addEventListener("click", () => {
-        selectText.innerHTML = option.getElementsByTagName("p").item(0).innerHTML;
+        selectedText = option.getElementsByTagName("p").item(0).innerHTML;
+        selectText.innerHTML = selectedText.substring(selectedText.indexOf("+"));
         list.classList.toggle("hide");
     }));
 }
