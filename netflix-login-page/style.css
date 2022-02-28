@@ -126,18 +126,21 @@ body{
     padding: 15px 20px;
     margin-bottom: 30px;
     box-sizing: border-box;
-    background: rgba(255, 255, 255, 0.7);
+    background: #333;
+    color: #8c8c8c;
     display: flex;
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
+    border-radius: 0px;
 }
 
 #list {
     width: 56%;
-    background: rgba(255, 255, 255, 0.7);
+    background: #595959;
     overflow: hidden;
     position: absolute;
+    color: white;
 
     margin-top: 50px;
     right: 95px;
@@ -154,7 +157,7 @@ body{
 }
 
 .options:hover {
-    background: rgba(255, 255, 255, 0.7);;
+    background: #737373;
 }
 
 .hide {
