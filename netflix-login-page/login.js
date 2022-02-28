@@ -22,60 +22,65 @@ function validate(){
         location.reload();
     }
     else {
-        showEmailError();
-        showPassError();
+        try {
+            showEmailError();
+        }
+        catch(err) {
+
+        }
+        try {
+            showPassError();
+        }
+        catch(err) {
+
+        }
     }
     return false;
 }
 
 function showEmailError() {
-        if (true) {
-            if (document.getElementById("email").value.length < 5 || document.getElementById("email").value.length > 50) {
-                if (document.getElementsByClassName("emailError").length === 0) {
-                    let loginErrorDiv = document.getElementById("email-error-div");
-                    let insertedElement = document.createElement('div');
-                    insertedElement.className = "emailError";
-                    if (document.getElementById("email").value.length === 0) {
-                        insertedElement.innerHTML = 'Lütfen geçerli bir telefon numarası veya e‑posta adresi girin.';
-                    }
-                    else {
-                        insertedElement.innerHTML = 'Lütfen geçerli bir e‑posta adresi girin.';
-                    }
-                    loginErrorDiv.appendChild(insertedElement);
-                }
-                else {
-                    let insertedElement = document.getElementsByClassName("emailError")[0];
-                    if (document.getElementById("email").value.length === 0) {
-                        insertedElement.innerHTML = 'Lütfen geçerli bir telefon numarası veya e‑posta adresi girin.';
-                    }
-                    else {
-                        insertedElement.innerHTML = 'Lütfen geçerli bir e‑posta adresi girin.';
-                    }
-                }
+    if (document.getElementById("email").value.length < 5 || document.getElementById("email").value.length > 50) {
+        if (document.getElementsByClassName("emailError").length === 0) {
+            let loginErrorDiv = document.getElementById("email-error-div");
+            let insertedElement = document.createElement('div');
+            insertedElement.className = "emailError";
+            if (document.getElementById("email").value.length === 0) {
+                insertedElement.innerHTML = 'Lütfen geçerli bir telefon numarası veya e‑posta adresi girin.';
             }
             else {
-                let el = document.getElementsByClassName("emailError");
-                el[0].remove();
+                insertedElement.innerHTML = 'Lütfen geçerli bir e‑posta adresi girin.';
+            }
+            loginErrorDiv.appendChild(insertedElement);
+        }
+        else {
+            let insertedElement = document.getElementsByClassName("emailError")[0];
+            if (document.getElementById("email").value.length === 0) {
+                insertedElement.innerHTML = 'Lütfen geçerli bir telefon numarası veya e‑posta adresi girin.';
+            }
+            else {
+                insertedElement.innerHTML = 'Lütfen geçerli bir e‑posta adresi girin.';
             }
         }
-    
+    }
+    else {
+        let el = document.getElementsByClassName("emailError");
+        el[0].remove();
+    }
 }
 
 function showPassError() {
-    if (true) {
-        if (document.getElementById("password").value.length < 4 || document.getElementById("password").value.length > 60) {
-            if (document.getElementsByClassName("passError").length === 0) {
-                let loginErrorDiv = document.getElementById("pass-error-div");
-                let insertedElement = document.createElement('div');
-                insertedElement.className = "passError";
-                insertedElement.innerHTML = 'Parolanız 4 ila 60 karakter olmalıdır.';
-                loginErrorDiv.appendChild(insertedElement);
-            }
+    if (document.getElementById("password").value.length < 4 || document.getElementById("password").value.length > 60) {
+        if (document.getElementsByClassName("passError").length === 0) {
+            let loginErrorDiv = document.getElementById("pass-error-div");
+            let insertedElement = document.createElement('div');
+            insertedElement.className = "passError";
+            insertedElement.innerHTML = 'Parolanız 4 ila 60 karakter olmalıdır.';
+            loginErrorDiv.appendChild(insertedElement);
         }
-        else {
-            let el = document.getElementsByClassName("passError");
-            el[0].remove();
-        }
+    }
+    else {
+        let el = document.getElementsByClassName("passError");
+        el[0].remove();
     }
 }
 
@@ -96,7 +101,6 @@ function showLoginError() {
 }
 
 function bodyClick(event) {
-    console.log(event);
 }
 
 
