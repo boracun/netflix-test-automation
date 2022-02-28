@@ -12,6 +12,7 @@ function validate(){
     if ((e_mail.length <= 50 && e_mail.length >= 5) && (passw.length <= 60 && passw.length >= 4)) {
         if(e_mail =="metehan"){
             if( passw == "8866"){
+                window.open("welcome.html");
                 alert("Sign in successful!");
                 sessionStorage.setItem("loginError", "false");
             }
