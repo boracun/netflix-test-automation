@@ -6,6 +6,7 @@ function validate(){
         if(e_mail =="metehan"){
             if( passw == "8866"){
                 alert("Sign in successful!");
+                window.open("E:/dersvural/458/netflix-test-automation/netflix-login-page/welcome.html")
                 localStorage.setItem("loginError", "false");
                 return true;
             }
