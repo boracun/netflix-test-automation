@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Netflexx login page</title>
     <link rel="stylesheet" href="style.css">
-    <script src = "login.js"></script>
+    
 
 </head>
 <body onload="onRefresh();">
@@ -27,8 +27,28 @@
                 </div>
                 <form class ="logIn"  action="index.html" method = "post">
                     <div class="logIn">
-                        <input type="text" name ="" value = "" placeholder="Enter an email or phone number" id = "email" onkeydown="emailFieldChange();" onfocusout="emailUnfocused()" onfocus="emailFocused()">
-                        <div id="email-error-div">
+                        <div class="input-and-error">
+                            <input type="text" name ="" value = "" placeholder="Enter an email or phone number" id = "email" onkeydown="emailFieldChange();" onfocusout="emailUnfocused()" onfocus="emailFocused()">
+                            <div id="email-error-div">
+                            </div>
+                        </div>
+                        <div class="selector">
+                            <div id="select-field">
+                                <p id="select-text">Select</p>
+                                <img src="images/dropdown-arrow.png">
+                            </div>
+                            <!--Add flags later if there is time-->
+                            <ul id="list" class="hide">
+                                <li class="options">
+                                    <p>Turkey</p>
+                                </li>
+                                <li class="options">
+                                    <p>Italy</p>
+                                </li>
+                                <li class="options">
+                                    <p>Switzerland</p>
+                                </li>
+                            </ul>
                         </div>
                     </div>
                     <div class="logIn">
@@ -52,5 +72,7 @@
 
 
     </div>
+
+    <script src = "login.js"></script>
 </body>
 </html>

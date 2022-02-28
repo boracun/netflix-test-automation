@@ -199,3 +199,21 @@ function isNumber(searchValue) {
         return false;
     }
 }
+
+function handleCountryList() {
+    var selectField = document.getElementById("select-field");
+    var selectText = document.getElementById("select-text");
+    var options = document.querySelectorAll(".options");
+    var list = document.getElementById("list");
+
+    selectField.addEventListener("click", () => {
+        list.classList.toggle("hide");
+    });
+
+    options.forEach(option => option.addEventListener("click", () => {
+        selectText.innerHTML = option.getElementsByTagName("p").item(0).innerHTML;
+        list.classList.toggle("hide");
+    }));
+}
+
+handleCountryList();
