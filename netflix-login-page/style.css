@@ -106,11 +106,14 @@ body{
     border-radius: 12px;
 }     
 
-.login input[type = submit]{
+.login input[type = button]{
     background: red;
     border-radius: 12px;
 }
 
+.login_button{
+    margin-bottom: 10px;
+}
 
 
 /*.login_body button{
@@ -123,6 +126,10 @@ body{
     font-size: 16px;
     border: 1px solid red;
 }*/
+
+.helpCenter{
+    height: 30px;
+}
 
 .helpCenter input{
     width: 50px;
@@ -138,6 +145,15 @@ body{
     
     color: white;
     
+}
+
+.extraStuff span{
+    
+    color:grey;
+}
+.extraStuff{
+
+    margin-top:15px;
 }
 
 
