@@ -104,7 +104,7 @@ body{
 .logIn div {
     margin-bottom: 25px;
     border-radius: 12px;
-    display: inline;
+    display: block;
 }
 
 .input-and-error {
