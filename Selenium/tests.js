@@ -9,7 +9,7 @@ runTestsOneByOne();
 
 async function runTestsOneByOne()
 {
-    //await checkButtonDisableFacebookLogin();
+    await checkButtonDisableFacebookLogin();
     //await checkCountryCodes();
     await checkLengthConstraints();
     await checkElementLoss();
@@ -20,26 +20,25 @@ async function runTestsOneByOne()
 async function checkButtonDisableFacebookLogin() {
     let driver = await new Builder().forBrowser("chrome").build();
     await driver.manage().window().maximize();
-    await driver.get("http://localhost/netflix-login-page");
-    await driver.findElement(By.className("btn minimal-login btn-submit btn-small")).click();
+    await driver.get("http://localhost/netflix-test-automation/netflix-login-page");
+    await driver.findElement(By.className("face_login")).click();
     await driver.sleep(1000);
 
     let windows = await driver.getAllWindowHandles();
     await driver.switchTo().window(windows[1]);
     await driver.sleep(1000);
-    await driver.findElement(By.name("login")).click();
-    let value = await driver.findElement(By.name("login")).isEnabled();
+    await driver.findElement(By.id("fcLogin")).click();
+    let value = await driver.findElement(By.id("fcLogin")).isEnabled();
 
     try
     {
-        assert.strictEqual(value, true);
+        assert.strictEqual(value, false);
         console.log("Test case #1 is successful.");
     }
     catch (err) 
     {
         console.log("Test case #1 failed: Login button is not disabled and might be clicked repeatedly.");
     }
-
     await driver.quit();
 }
 

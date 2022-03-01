@@ -254,3 +254,14 @@ function isNumber(searchValue) {
         return false;
     }
 }
+
+function facebook() {
+    window.open("Facebook.html");
+}
+
+function facebookLoginButton() {
+    console.log("aaa");
+    document.getElementById("fcLogin").disabled = true;
+    console.log( document.getElementById("fcLogin").disabled);
+    setTimeout(function(){document.getElementById("fcLogin").disabled = false;},1000);
+}
