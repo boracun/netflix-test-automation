@@ -180,26 +180,6 @@ li > p {
     visibility: hidden;
 }
 
-/*For images
-.options img {
-    width: 25px;
-    position: absolute;
-    top: 12px;
-    left: 25px;
-}
-*/
-
-/*Only for test*/
-.main-div {
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: orange;
-}
-
-
 /*.login_body button{
     height: 50px;
     width: 100%;
