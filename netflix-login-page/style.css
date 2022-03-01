@@ -102,7 +102,7 @@ body{
 }
 
 .logIn div {
-    margin-bottom: 25px;
+    margin-bottom: 30px;
     border-radius: 12px;
     display: block;
 }
@@ -114,11 +114,18 @@ body{
 .logIn input[type = text]  {
     width: 80%;
     height: 50px;
-}     
+    border-radius: 4px;
+}   
 
-.login input[type = button]{
+.logIn input[type = password]  {
+    height: 50px;
+    margin-bottom: 30px;
+    border-radius: 4px;
+}
+
+.logIn input[type = button]{
     background: red;
-    border-radius: 12px;
+    border-radius: 5px;
 }
 
 .login_button{
@@ -143,7 +150,7 @@ body{
     align-items: center;
     justify-content: space-between;
     cursor: pointer;
-    border-radius: 0px;
+    border-radius: 4px;
 
     position: absolute;
     right: 60px;
@@ -158,6 +165,7 @@ body{
     overflow-x: hidden;
     position: absolute;
     color: white;
+    border-radius: 4px;
 
     margin-top: 0px;
     right: 60px;
@@ -174,6 +182,7 @@ body{
     box-sizing: border-box;
     position: relative;
     left: -38px;
+    border-radius: 4px;
 }
 
 .options:hover {
