@@ -92,6 +92,20 @@
                                 oninput="emailFieldChange();" onfocusout="emailUnfocused()" onfocus="emailFocused()">
                             <div class="selector">
                                 <div id="select-field">
+                                    <script>
+                                        if (sessionStorage.getItem("bothError") == "true" && sessionStorage.getItem("loginError") == "true") {
+                                            let dropMenu = document.getElementById("select-field");
+                                            dropMenu.style.top = "222px";
+                                        }
+                                        else if (sessionStorage.getItem("emailError") == "true" && sessionStorage.getItem("loginError") == "true") {
+                                            let dropMenu = document.getElementById("select-field");
+                                            dropMenu.style.top = "205px";
+                                        }
+                                        else if (sessionStorage.getItem("numberError") == "true" && sessionStorage.getItem("loginError") == "true") {
+                                            let dropMenu = document.getElementById("select-field");
+                                            dropMenu.style.top = "222px";
+                                        }
+                                    </script>
                                     <p id="select-text">+90</p>
                                     <img src="images/dropdown-arrow.png">
                                 </div>

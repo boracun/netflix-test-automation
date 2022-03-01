@@ -148,7 +148,7 @@ function showLoginError() {
             insertedElement.innerHTML = 'Incorrect password. Please try again or you can reset your password.';
         }
         else if (sessionStorage.getItem("numberError") == "true") {
-            insertedElement.innerHTML = 'Sorry, we cannot find an account with this email address. Please try again or create a new account.';
+            insertedElement.innerHTML = 'Sorry, we cannot find an account with this number. Please make sure to select the correct country code or sign in with email.';
         }
         loginErrorDiv.appendChild(insertedElement);
     }
