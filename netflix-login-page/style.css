@@ -104,13 +104,16 @@ body{
 .logIn div {
     margin-bottom: 25px;
     border-radius: 12px;
-    display: flex;
-    flex-direction: row;
+    display: inline;
 }
 
+.input-and-error {
+    display: inline;
+}
 
 .logIn input[type = text]  {
-    width: 75%;
+    width: 80%;
+    height: 50px;
 }     
 
 .login input[type = button]{
@@ -127,7 +130,7 @@ body{
 }
 
 #select-field {
-    width: 75%;
+    width: 70px;
     height: 50px;
     padding: 15px 10px;
     margin-bottom: 30px;
@@ -141,6 +144,10 @@ body{
     justify-content: space-between;
     cursor: pointer;
     border-radius: 0px;
+
+    position: absolute;
+    right: 60px;
+    top: 135px;
 }
 
 #list {

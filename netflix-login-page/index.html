@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Netflexx login page</title>
     <link rel="stylesheet" href="style.css">
-    
+
 </head>
+
 <body onload="onRefresh();">
     <script>
 
@@ -15,58 +17,58 @@
             console.log('statusChangeCallback');
             console.log(response);                   // The current login status of the person.
             if (response.status === 'connected') {   // Logged into your webpage and Facebook.
-            testAPI();  
+                testAPI();
             } else {                                 // Not logged into your webpage or we are unable to tell.
-            document.getElementById('status').innerHTML = 'Please log ' +
-                'into this webpage.';
+                document.getElementById('status').innerHTML = 'Please log ' +
+                    'into this webpage.';
             }
         }
-        
-        
+
+
         function checkLoginState() {               // Called when a person is finished with the Login Button.
-            FB.getLoginStatus(function(response) {   // See the onlogin handler
-            statusChangeCallback(response);
+            FB.getLoginStatus(function (response) {   // See the onlogin handler
+                statusChangeCallback(response);
             });
         }
-        
-        
-        window.fbAsyncInit = function() {
+
+
+        window.fbAsyncInit = function () {
             FB.init({
-            appId      : '670660677453714',
-            cookie     : true,                     // Enable cookies to allow the server to access the session.
-            xfbml      : true,                     // Parse social plugins on this webpage.
-            version    : 'v2.8'           // Use this Graph API version for this call.
+                appId: '670660677453714',
+                cookie: true,                     // Enable cookies to allow the server to access the session.
+                xfbml: true,                     // Parse social plugins on this webpage.
+                version: 'v2.8'           // Use this Graph API version for this call.
             });
-        
-        
-            FB.getLoginStatus(function(response) {   // Called after the JS SDK has been initialized.
-            statusChangeCallback(response);        // Returns the login status.
+
+
+            FB.getLoginStatus(function (response) {   // Called after the JS SDK has been initialized.
+                statusChangeCallback(response);        // Returns the login status.
             });
         };
-        
+
         function testAPI() {                      // Testing Graph API after login.  See statusChangeCallback() for when this call is made.
             console.log('Welcome!  Fetching your information.... ');
-            FB.api('/me', function(response) {
-            console.log('Successful login for: ' + response.name);
-            document.getElementById('status').innerHTML =
-                'Thanks for logging in, ' + response.name + '!';
+            FB.api('/me', function (response) {
+                console.log('Successful login for: ' + response.name);
+                document.getElementById('status').innerHTML =
+                    'Thanks for logging in, ' + response.name + '!';
             });
         }
-        
-        </script>
-        
-        
-        <!-- The JS SDK Login Button -->
-        
 
-        
-        <div id="status">
-        </div> 
-        
-        
-        
-        <!-- Load the JS SDK asynchronously -->
-        <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+    </script>
+
+
+    <!-- The JS SDK Login Button -->
+
+
+
+    <div id="status">
+    </div>
+
+
+
+    <!-- Load the JS SDK asynchronously -->
+    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
     <div class="wrapper">
         <div class="header">
             <div class="logo">
@@ -87,1271 +89,1271 @@
                         <div class="input-and-error">
                             <input type="text" name="" value="" placeholder="Enter an email or phone number" id="email"
                                 onkeydown="emailFieldChange();" onfocusout="emailUnfocused()" onfocus="emailFocused()">
-                            <div id="email-error-div">
+                            <div class="selector">
+                                <div id="select-field">
+                                    <p id="select-text">+90</p>
+                                    <img src="images/dropdown-arrow.png">
+                                </div>
+                                <!--Add flags later if there is time-->
+                                <ul id="list" class="hide">
+                                    <li class="options">
+                                        <p>
+                                            Afghanistan +93
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Åland Islands +358
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Albania +355
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Algeria +213
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            American Samoa +1
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Andorra +376
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Angola +244
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Anguilla +1
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Antarctica +672
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Antigua & Barbuda +1
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Argentina +54
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Armenia +374
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>Aruba +297
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Australia +61
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Austria +43
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Azerbaijan +994
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Bahamas +1
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Bahrain +973
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Bangladesh +880
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Barbados +1
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Belarus +375
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Belgium +32
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Belize +501
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Benin +229
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Bermuda +1
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Bhutan +975
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Bolivia +591
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Bosnia & Herzegovina +387
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Botswana +267
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Bouvet Island +47
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Brazil +55
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            British Indian Ocean Territory +246
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            British Virgin Islands +1
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Brunei +673
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Bulgaria +359
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Burkina Faso +226
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Burundi +257
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Cambodia +855
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Cameroon +237
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Canada +1
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Cape Verde +238
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Caribbean Netherlands +599
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Cayman Islands +1
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Central African Republic +236
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Chad +235
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Chile +56
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            China +86
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Christmas Island +61
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Cocos (Keeling) Islands +61
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Colombia +57
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Comoros +269
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Congo - Brazzaville +242
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Congo - Kinshasa +243
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Cook Islands +682
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Costa Rica +506
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Côte d’Ivoire +225
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Croatia +385
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Cuba +53
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Curaçao +599
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Curaçao +599
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Cyprus +357
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Czechia +420
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Denmark +45
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Djibouti +253
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Dominica +1
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Dominican Republic +1
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Ecuador +593
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Egypt +20
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            El Salvador +503
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Equatorial Guinea +240
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Eritrea +291
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Estonia +372
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Ethiopia +251
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Falkland Islands +500
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Faroe Islands +298
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Fiji +679
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Finland +358
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            France +33
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            French Guiana +594
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            French Polynesia +689
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            French Southern Territories +262
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Gabon +241
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Gambia +220
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Georgia +995
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Germany +49
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Ghana +233
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Gibraltar +350
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Greece +30
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Greenland +299
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Grenada +1
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Guadeloupe +590
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Guam +1
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Guatemala +502
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Guernsey +44
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Guinea +224
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Guinea-Bissau +245
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Guyana +592
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Haiti +509
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Heard & McDonald Islands +672
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Honduras +504
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Hong Kong SAR China +852
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Hungary +36
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Iceland +354
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            India +91
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Indonesia +62
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Iran +98
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Iraq +964
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Ireland +353
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Isle of Man +44
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Israel +972
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Italy +39
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Jamaica +1
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Japan +81
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Jersey +44
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Jordan +962
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Kazakhstan +7
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Kenya +254
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Kiribati +686
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Kosovo +383
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Kuwait +965
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Kyrgyzstan +996
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Laos +856
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Latvia +371
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Lebanon +961
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Lesotho +266
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Liberia +231
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Libya +218
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Liechtenstein +423
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Lithuania +370
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Luxembourg +352
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Macau SAR China +853
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Macedonia +389
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Madagascar +261
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Malawi +265
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Malaysia +60
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Maldives +960
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Mali +223
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Malta +356
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Marshall Islands +692
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Martinique +596
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Mauritania +222
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Mauritius +230
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Mayotte +262
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Mexico +52
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Micronesia +691
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Moldova +373
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Monaco +377
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Mongolia +976
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Montenegro +382
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Montserrat +1
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Morocco +212
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Mozambique +258
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Myanmar (Burma) +95
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Namibia +264
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Nauru +674
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Nepal +977
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Netherlands +31
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            New Caledonia +687
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            New Zealand +64
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Nicaragua +505
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Niger +227
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Nigeria +234
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Niue +683
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Norfolk Island +672
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Northern Mariana Islands +1
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            North Korea +850
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Norway +47
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Oman +968
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Pakistan +92
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Palau +680
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Palestinian Territories +970
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Panama +507
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Papua New Guinea +675
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Paraguay +595
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Peru +51
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Philippines +63
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Pitcairn Islands +64
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Poland +48
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Portugal +351
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Puerto Rico +1
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Qatar +974
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Réunion +262
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Romania +40
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Russia +7
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Rwanda +250
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Samoa +685
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            San Marino +378
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            São Tomé & Príncipe +239
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Saudi Arabia +966
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Senegal +221
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Serbia +381
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Seychelles +248
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Sierra Leone +232
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Singapore +65
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Sint Maarten +1
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Slovakia +421
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Slovenia +386
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Solomon Islands +677
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Somalia +252
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            South Africa +27
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            South Georgia & South Sandwich Islands +500
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            South Korea +82
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            South Sudan +211
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Spain +34
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Sri Lanka +94
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            St. Barthélemy +590
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            St. Helena +290
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            St. Kitts & Nevis +1
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            St. Lucia +1
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            St. Martin +590
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            St. Pierre & Miquelon +508
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            St. Vincent & Grenadines +1
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Sudan +249
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Suriname +597
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Svalbard & Jan Mayen +47
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Swaziland +268
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Sweden +46
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Switzerland +41
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Syria +963
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Taiwan +886
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Tajikistan +992
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Tanzania +255
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Thailand +66
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Timor-Leste +670
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Togo +228
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Tokelau +690
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Tonga +676
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Trinidad & Tobago +1
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Tunisia +216
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Turkey +90
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Turkmenistan +993
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Turks & Caicos Islands +1
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Tuvalu +688
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            U.S. Outlying Islands +1
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            U.S. Virgin Islands +1
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Uganda +256
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Ukraine +380
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            United Arab Emirates +971
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            United Kingdom +44
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            United States +1
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Uruguay +598
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Uzbekistan +998
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Vanuatu +678
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Vatican City +379
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Venezuela +58
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Vietnam +84
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Wallis & Futuna +681
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Western Sahara +212
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Yemen +967
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Zambia +260
+                                        </p>
+                                    </li>
+                                    <li class="options">
+                                        <p>
+                                            Zimbabwe +263
+                                        </p>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
-                        <div class="selector">
-                            <div id="select-field">
-                                <p id="select-text">+90</p>
-                                <img src="images/dropdown-arrow.png">
-                            </div>
-                            <!--Add flags later if there is time-->
-                            <ul id="list" class="hide">
-                                <li class="options">
-                                    <p>
-                                        Afghanistan +93
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Åland Islands +358
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Albania +355
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Algeria +213
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        American Samoa +1
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Andorra +376
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Angola +244
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Anguilla +1
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Antarctica +672
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Antigua & Barbuda +1
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Argentina +54
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Armenia +374
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>Aruba +297
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Australia +61
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Austria +43
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Azerbaijan +994
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Bahamas +1
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Bahrain +973
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Bangladesh +880
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Barbados +1
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Belarus +375
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Belgium +32
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Belize +501
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Benin +229
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Bermuda +1
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Bhutan +975
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Bolivia +591
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Bosnia & Herzegovina +387
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Botswana +267
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Bouvet Island +47
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Brazil +55
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        British Indian Ocean Territory +246
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        British Virgin Islands +1
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Brunei +673
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Bulgaria +359
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Burkina Faso +226
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Burundi +257
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Cambodia +855
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Cameroon +237
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Canada +1
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Cape Verde +238
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Caribbean Netherlands +599
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Cayman Islands +1
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Central African Republic +236
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Chad +235
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Chile +56
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        China +86
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Christmas Island +61
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Cocos (Keeling) Islands +61
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Colombia +57
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Comoros +269
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Congo - Brazzaville +242
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Congo - Kinshasa +243
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Cook Islands +682
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Costa Rica +506
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Côte d’Ivoire +225
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Croatia +385
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Cuba +53
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Curaçao +599
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Curaçao +599
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Cyprus +357
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Czechia +420
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Denmark +45
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Djibouti +253
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Dominica +1
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Dominican Republic +1
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Ecuador +593
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Egypt +20
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        El Salvador +503
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Equatorial Guinea +240
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Eritrea +291
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Estonia +372
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Ethiopia +251
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Falkland Islands +500
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Faroe Islands +298
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Fiji +679
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Finland +358
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        France +33
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        French Guiana +594
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        French Polynesia +689
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        French Southern Territories +262
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Gabon +241
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Gambia +220
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Georgia +995
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Germany +49
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Ghana +233
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Gibraltar +350
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Greece +30
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Greenland +299
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Grenada +1
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Guadeloupe +590
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Guam +1
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Guatemala +502
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Guernsey +44
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Guinea +224
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Guinea-Bissau +245
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Guyana +592
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Haiti +509
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Heard & McDonald Islands +672
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Honduras +504
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Hong Kong SAR China +852
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Hungary +36
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Iceland +354
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        India +91
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Indonesia +62
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Iran +98
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Iraq +964
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Ireland +353
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Isle of Man +44
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Israel +972
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Italy +39
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Jamaica +1
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Japan +81
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Jersey +44
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Jordan +962
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Kazakhstan +7
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Kenya +254
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Kiribati +686
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Kosovo +383
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Kuwait +965
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Kyrgyzstan +996
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Laos +856
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Latvia +371
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Lebanon +961
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Lesotho +266
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Liberia +231
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Libya +218
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Liechtenstein +423
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Lithuania +370
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Luxembourg +352
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Macau SAR China +853
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Macedonia +389
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Madagascar +261
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Malawi +265
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Malaysia +60
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Maldives +960
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Mali +223
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Malta +356
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Marshall Islands +692
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Martinique +596
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Mauritania +222
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Mauritius +230
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Mayotte +262
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Mexico +52
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Micronesia +691
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Moldova +373
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Monaco +377
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Mongolia +976
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Montenegro +382
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Montserrat +1
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Morocco +212
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Mozambique +258
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Myanmar (Burma) +95
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Namibia +264
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Nauru +674
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Nepal +977
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Netherlands +31
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        New Caledonia +687
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        New Zealand +64
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Nicaragua +505
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Niger +227
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Nigeria +234
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Niue +683
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Norfolk Island +672
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Northern Mariana Islands +1
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        North Korea +850
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Norway +47
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Oman +968
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Pakistan +92
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Palau +680
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Palestinian Territories +970
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Panama +507
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Papua New Guinea +675
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Paraguay +595
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Peru +51
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Philippines +63
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Pitcairn Islands +64
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Poland +48
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Portugal +351
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Puerto Rico +1
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Qatar +974
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Réunion +262
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Romania +40
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Russia +7
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Rwanda +250
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Samoa +685
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        San Marino +378
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        São Tomé & Príncipe +239
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Saudi Arabia +966
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Senegal +221
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Serbia +381
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Seychelles +248
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Sierra Leone +232
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Singapore +65
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Sint Maarten +1
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Slovakia +421
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Slovenia +386
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Solomon Islands +677
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Somalia +252
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        South Africa +27
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        South Georgia & South Sandwich Islands +500
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        South Korea +82
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        South Sudan +211
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Spain +34
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Sri Lanka +94
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        St. Barthélemy +590
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        St. Helena +290
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        St. Kitts & Nevis +1
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        St. Lucia +1
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        St. Martin +590
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        St. Pierre & Miquelon +508
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        St. Vincent & Grenadines +1
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Sudan +249
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Suriname +597
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Svalbard & Jan Mayen +47
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Swaziland +268
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Sweden +46
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Switzerland +41
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Syria +963
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Taiwan +886
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Tajikistan +992
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Tanzania +255
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Thailand +66
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Timor-Leste +670
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Togo +228
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Tokelau +690
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Tonga +676
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Trinidad & Tobago +1
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Tunisia +216
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Turkey +90
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Turkmenistan +993
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Turks & Caicos Islands +1
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Tuvalu +688
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        U.S. Outlying Islands +1
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        U.S. Virgin Islands +1
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Uganda +256
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Ukraine +380
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        United Arab Emirates +971
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        United Kingdom +44
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        United States +1
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Uruguay +598
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Uzbekistan +998
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Vanuatu +678
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Vatican City +379
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Venezuela +58
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Vietnam +84
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Wallis & Futuna +681
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Western Sahara +212
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Yemen +967
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Zambia +260
-                                    </p>
-                                </li>
-                                <li class="options">
-                                    <p>
-                                        Zimbabwe +263
-                                    </p>
-                                </li>
-                            </ul>
+                        <div id="email-error-div">
                         </div>
                     </div>
                     <div class="logIn">
@@ -1360,7 +1362,7 @@
                         <div id="pass-error-div">
                         </div>
                     </div>
-                    <input type="button" name= "" value = "Sign In" id = "signIn" onclick = "validate()">
+                    <input type="button" name="" value="Sign In" id="signIn" onclick="validate()">
                 </form>
 
             </div>
@@ -1368,15 +1370,15 @@
                 <input type="checkbox">
                 <span>Remember me</span>
             </div>
-            <div class =  "login_button">
-                <fb:login-button id = "fb-buttoon" scope="public_profile,email" onlogin="checkLoginState();">
+            <div class="login_button">
+                <fb:login-button id="fb-buttoon" scope="public_profile,email" onlogin="checkLoginState();">
                 </fb:login-button>
-             </div> 
+            </div>
 
             <div class="extraStuff">
                 <span>New to netflix?</span>
-                <a href="welcome.html"> <span style = "color:white">Sign up now</span></a>
-            </div> 
+                <a href="welcome.html"> <span style="color:white">Sign up now</span></a>
+            </div>
         </div>
 
 
