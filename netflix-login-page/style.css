@@ -1,7 +1,6 @@
 body{
     padding :0;
     margin:0;
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 .logo img{
@@ -66,14 +65,6 @@ body{
     right:0;
     
 }
-
-#black-tint {
-    width: 98.9vw;
-    height: 100vh;
-    background-color: rgba(0,0,0, 0.5);
-    position: absolute;
-}
-
 .login_body{
     padding: 60px;
     z-index: 90;
@@ -109,103 +100,21 @@ body{
     
 }
 
-.logIn div {
-    margin-bottom: 30px;
-    border-radius: 12px;
-    display: block;
-}
-
-.input-and-error {
-    display: inline;
-}
 
 .logIn input[type = text]  {
-    width: 80%;
-    height: 50px;
-    border-radius: 4px;
-}   
+    margin-bottom: 25px;
+    border-radius: 12px;
+}     
 
-.logIn input[type = password]  {
-    height: 50px;
-    margin-bottom: 30px;
-    border-radius: 4px;
-}
-
-.logIn input[type = button]{
+.login input[type = button]{
     background: red;
-    border-radius: 5px;
+    border-radius: 12px;
 }
 
 .login_button{
     margin-bottom: 10px;
-    z-index: 1;
-}
-.selector {
-    width: 88px;
 }
 
-#select-field {
-    width: 70px;
-    height: 50px;
-    padding: 15px 10px;
-    margin-bottom: 30px;
-
-    box-sizing: border-box;
-    background: #333;
-    color: #8c8c8c;
-    font-size: smaller;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    cursor: pointer;
-    border-radius: 4px;
-
-    position: absolute;
-    right: 60px;
-    top: 135px;
-}
-
-#list {
-    width: 64%;
-    height: 300px;
-    background: #595959;
-    overflow-y: scroll;
-    overflow-x: hidden;
-    position: absolute;
-    color: white;
-    border-radius: 4px;
-
-    margin-top: 0px;
-    right: 60px;
-
-    z-index: 5;
-}
-
-.options {
-    width: 105%;
-    margin-left: 10px;
-    padding: 5px;
-    list-style: none;
-    cursor: pointer;
-    box-sizing: border-box;
-    position: relative;
-    left: -38px;
-    border-radius: 4px;
-}
-
-.options:hover {
-    background: #737373;
-}
-
-li > p {
-    font-weight: 700;
-    font-size: small;
-    margin-left: 15px;
-}
-
-.hide {
-    visibility: hidden;
-}
 
 /*.login_body button{
     height: 50px;
@@ -223,8 +132,8 @@ li > p {
 }
 
 .helpCenter input{
-    width: 25px;
-    height: 16px;
+    width: 50px;
+    height: 15px;
    
 
 }
@@ -234,7 +143,7 @@ li > p {
 
 .helpCenter span{
     
-    color: gray;
+    color: white;
     
 }
 
@@ -246,57 +155,6 @@ li > p {
 
     margin-top:15px;
 }
-
-.site-footer-wrapper {
-    min-width: 190px;
-    width: 100%;
-    margin-top: 80px;
-    padding-bottom: 20px;
-    font-size: 1em;
-    background-color:rgba(0,0,0, .7);
-    position: relative;
-}
-
-.footer-top {
-    padding: 0;
-    margin: 0 0 30px;
-}
-
-p.footer-top{
-    color: #757575;
-    font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
-    font-size: 16px;
-    -webkit-text-size-adjust: 100%;
-}
-
-.site-footer {
-    padding: 30px 0;
-    max-width: 1000px;
-    margin: 0 auto;
-    width: 90%;
-}
-
-.footer-link-item {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    padding: 0;
-    margin-bottom: 16px;
-    display: inline-block;
-    min-width: 100px;
-    width: 25%;
-    padding-right: 12px;
-    vertical-align: top;
-}
-
-a.footer-top-a{
-    color: #757575;
-}
-
-
-
-
-
 
 
 
