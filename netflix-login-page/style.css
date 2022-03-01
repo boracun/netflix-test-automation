@@ -230,6 +230,57 @@ li > p {
     margin-top:15px;
 }
 
+.site-footer-wrapper {
+    min-width: 190px;
+    width: 100%;
+    margin-top: 80px;
+    padding-bottom: 20px;
+    font-size: 1em;
+    background-color:rgba(0,0,0, .7);
+    position: relative;
+}
+
+.footer-top {
+    padding: 0;
+    margin: 0 0 30px;
+}
+
+p.footer-top{
+    color: #757575;
+    font-family: 'Helvetica Neue',Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    -webkit-text-size-adjust: 100%;
+}
+
+.site-footer {
+    padding: 30px 0;
+    max-width: 1000px;
+    margin: 0 auto;
+    width: 90%;
+}
+
+.footer-link-item {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+    margin-bottom: 16px;
+    display: inline-block;
+    min-width: 100px;
+    width: 25%;
+    padding-right: 12px;
+    vertical-align: top;
+}
+
+a.footer-top-a{
+    color: #757575;
+}
+
+
+
+
+
+
 
 
 
