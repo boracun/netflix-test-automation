@@ -26,13 +26,32 @@ function validate(){
     var e_mail= document.getElementById("email").value;
     var passw = document.getElementById("password").value;
     if ((e_mail.length <= 50 && e_mail.length >= 5) && (passw.length <= 60 && passw.length >= 4)) {
-        if(registeredUsers[e_mail] === passw){
-            window.open("welcome.html");
-            alert("Sign in successful!");
-            sessionStorage.setItem("loginError", "false");
+        if (registeredUsers[e_mail] === undefined) {
+            if (checkIsEmail(e_mail)) {
+                sessionStorage.setItem("loginError", "true");
+                sessionStorage.setItem("bothError", "true");
+                sessionStorage.setItem("emailError", "false");
+                sessionStorage.setItem("numberError", "false");
+            }
+            else {
+                sessionStorage.setItem("loginError", "true");
+                sessionStorage.setItem("numberError", "true");
+                sessionStorage.setItem("bothError", "false");
+                sessionStorage.setItem("emailError", "false");
+            }
         }
-        else{
-            sessionStorage.setItem("loginError", "true");
+        else {
+            if(registeredUsers[e_mail] === passw){
+                window.open("welcome.html");
+                alert("Sign in successful!");
+                sessionStorage.setItem("loginError", "false");
+            }
+            else {
+                sessionStorage.setItem("loginError", "true");
+                sessionStorage.setItem("emailError", "true");
+                sessionStorage.setItem("bothError", "false");
+                sessionStorage.setItem("numberError", "false");
+            }
         }
         location.reload();
     }
@@ -112,7 +131,16 @@ function showLoginError() {
         let loginErrorDiv = document.getElementById("login-error-div");
         let insertedElement = document.createElement('div');
         insertedElement.className = "loginError";
-        insertedElement.innerHTML = 'Bu e‑posta adresi ile bağlantılı bir hesap bulamadık. Lütfen yeniden deneyin ya da yeni bir hesap oluşturun.';
+
+        if (sessionStorage.getItem("bothError") == "true") {
+            insertedElement.innerHTML = 'Bu e‑posta adresi ile bağlantılı bir hesap bulamadık. Lütfen yeniden deneyin ya da yeni bir hesap oluşturun.';
+        }
+        else if (sessionStorage.getItem("emailError") == "true") {
+            insertedElement.innerHTML = 'Parola yanlış. Lütfen yeniden deneyin ya da parolanızı sıfırlayın.';
+        }
+        else if (sessionStorage.getItem("numberError") == "true") {
+            insertedElement.innerHTML = 'Bu numara ile bağlantılı bir hesap bulamadık. Lütfen doğru ülke kodunun seçili olduğundan emin olun ya da e‑posta ile oturum açın.';
+        }
         loginErrorDiv.appendChild(insertedElement);
     }
 }
@@ -271,22 +299,3 @@ function isNumber(searchValue) {
         return false;
     }
 }
-
-function handleCountryList() {
-    var selectField = document.getElementById("select-field");
-    var selectText = document.getElementById("select-text");
-    var options = document.querySelectorAll(".options");
-    var list = document.getElementById("list");
-
-    selectField.addEventListener("click", () => {
-        list.classList.toggle("hide");
-    });
-
-    options.forEach(option => option.addEventListener("click", () => {
-        selectedText = option.getElementsByTagName("p").item(0).innerHTML;
-        selectText.innerHTML = selectedText.substring(selectedText.indexOf("+"));
-        list.classList.toggle("hide");
-    }));
-}
-
-handleCountryList();
