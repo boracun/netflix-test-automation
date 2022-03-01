@@ -1,3 +1,8 @@
+var registeredUsers = {
+    "bora@gmail.com": "verifyingallday",
+    "cagri@ug.bilkent.edu.tr": "999888",
+    "+9005554448956": "coolphone"
+}
 
 function onRefresh() {
     sessionStorage.setItem("emailFocus", "false");
@@ -10,12 +15,10 @@ function validate(){
     var e_mail= document.getElementById("email").value;
     var passw = document.getElementById("password").value;
     if ((e_mail.length <= 50 && e_mail.length >= 5) && (passw.length <= 60 && passw.length >= 4)) {
-        if(e_mail =="metehan"){
-            if( passw == "8866"){
-                window.open("welcome.html");
-                alert("Sign in successful!");
-                sessionStorage.setItem("loginError", "false");
-            }
+        if(registeredUsers[e_mail] === passw){
+            window.open("welcome.html");
+            alert("Sign in successful!");
+            sessionStorage.setItem("loginError", "false");
         }
         else{
             sessionStorage.setItem("loginError", "true");
