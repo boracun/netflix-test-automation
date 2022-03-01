@@ -66,6 +66,14 @@ body{
     right:0;
     
 }
+
+#black-tint {
+    width: 98.9vw;
+    height: 100vh;
+    background-color: rgba(0,0,0, 0.5);
+    position: absolute;
+}
+
 .login_body{
     padding: 60px;
     z-index: 90;
