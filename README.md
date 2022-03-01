@@ -5,5 +5,5 @@ In our project we have used node.js and javascript inorder to run Selenium so on
 ![image](https://user-images.githubusercontent.com/69125059/156240021-3c8b34c8-d950-4e62-bfcf-016510798b44.png)
 ![image](https://user-images.githubusercontent.com/69125059/156240068-852921da-932b-463b-ad09-8e143d34f303.png)
 
-To run tests, one needs to run the tests.js which is located in the Selenium directory. After running the file nothing needs to be done as the tests execute themselves since they are automated.
+To run tests, one needs to run the tests.js which is located in the Selenium directory. After running the file nothing needs to be done as the tests execute themselves since they are automated. Do not forget that inorder to run the tests your page needs to be served by the apache server at the localhost, since there is a test case that uses Facebook API. So xampp part is crucial inorder to run tests. And in each test case, http://localhost/netflix-test-automation/netflix-login-page web drives is produced by this URL.
 
