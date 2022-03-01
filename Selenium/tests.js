@@ -9,7 +9,7 @@ runTestsOneByOne();
 
 async function runTestsOneByOne()
 {
-    await checkButtonDisableFacebookLogin();
+    //await checkButtonDisableFacebookLogin();
     //await checkCountryCodes();
     await checkLengthConstraints();
     await checkElementLoss();

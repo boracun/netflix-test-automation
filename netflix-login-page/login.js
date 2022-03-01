@@ -41,6 +41,7 @@ function validate(){
 
 function showEmailError() {
     if (document.getElementById("email").value.length < 5 || document.getElementById("email").value.length > 50) {
+        sessionStorage.setItem("emailErrorOpen", "true");
         if (document.getElementsByClassName("emailError").length === 0) {
             let loginErrorDiv = document.getElementById("email-error-div");
             let insertedElement = document.createElement('div');
@@ -71,6 +72,7 @@ function showEmailError() {
 
 function showPassError() {
     if (document.getElementById("password").value.length < 4 || document.getElementById("password").value.length > 60) {
+        sessionStorage.setItem("passErrorOpen", "true");
         if (document.getElementsByClassName("passError").length === 0) {
             let loginErrorDiv = document.getElementById("pass-error-div");
             let insertedElement = document.createElement('div');
