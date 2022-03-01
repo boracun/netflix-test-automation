@@ -1,7 +1,18 @@
 var registeredUsers = {
     "bora@gmail.com": "verifyingallday",
     "cagri@ug.bilkent.edu.tr": "999888",
-    "+9005554448956": "coolphone"
+    "vural.d.a@hotmail.com": "159753",
+    "metehan@yahoo.com": "321321",
+    "+9005554448956": "coolphone",
+    "+12025550118": "usgreatagain",
+    "+930776589657": "afghanphone",
+    "+33934315771": "ngolokante",
+    "+4930662358542": "marcoreus",
+    "+9940552989772": "haydaraliyev",
+    "+559556202774": "alexdesouza10",
+    "+74012089072": "putinpls",
+    "+40257288908": "gheorghehagi",
+    "+34171515185": "torres",
 }
 
 function onRefresh() {
