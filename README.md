@@ -9,20 +9,21 @@ To run tests, one needs to run the tests.js which is located in the Selenium dir
 
 When using the page you can use these user credentials inorder to do a successfull login. Left part will go to email field and right part will go to password field.
 ```
-var registeredUsers = {
-    "bora@gmail.com": "verifyingallday",
-    "cagri@ug.bilkent.edu.tr": "999888",
-    "vural.d.a@hotmail.com": "159753",
-    "metehan@yahoo.com": "321321",
-    "+9005554448956": "coolphone",
-    "+12025550118": "usgreatagain",
-    "+930776589657": "afghanphone",
-    "+33934315771": "ngolokante",
-    "+4930662358542": "marcoreus",
-    "+9940552989772": "haydaraliyev",
-    "+559556202774": "alexdesouza10",
-    "+74012089072": "putinpls",
-    "+40257288908": "gheorghehagi",
-    "+34171515185": "torres",
-}
+    Email               Pass
+    "bora@gmail.com": "verifyingallday"
+    "cagri@ug.bilkent.edu.tr": "999888"
+    "vural.d.a@hotmail.com": "159753"
+    "metehan@yahoo.com": "321321"
+    
+    Number                                              Pass
+    "05554448956" (Select +90 from country code menu): "coolphone",
+    "2025550118" (Select +1 from country code menu): "usgreatagain",
+    "0776589657" (Select +93 from country code menu): "afghanphone",
+    "934315771" (Select +33 from country code menu): "ngolokante",
+    "30662358542" (Select +49 from country code menu): "marcoreus",
+    "0552989772" (Select +994 from country code menu): "haydaraliyev",
+    "9556202774" (Select +55 from country code menu): "alexdesouza10",
+    "4012089072" (Select +7 from country code menu): "putinpls",
+    "257288908" (Select +40 from country code menu): "gheorghehagi",
+    "171515185" (Select +34 from country code menu): "torres",
 ```
