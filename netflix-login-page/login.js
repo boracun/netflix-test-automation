@@ -12,6 +12,7 @@ function validate(){
     if ((e_mail.length <= 50 && e_mail.length >= 5) && (passw.length <= 60 && passw.length >= 4)) {
         if(e_mail =="metehan"){
             if( passw == "8866"){
+                window.open("welcome.html");
                 alert("Sign in successful!");
                 sessionStorage.setItem("loginError", "false");
             }
@@ -265,3 +266,21 @@ function facebookLoginButton() {
     console.log( document.getElementById("fcLogin").disabled);
     setTimeout(function(){document.getElementById("fcLogin").disabled = false;},1000);
 }
+function handleCountryList() {
+    var selectField = document.getElementById("select-field");
+    var selectText = document.getElementById("select-text");
+    var options = document.querySelectorAll(".options");
+    var list = document.getElementById("list");
+
+    selectField.addEventListener("click", () => {
+        list.classList.toggle("hide");
+    });
+
+    options.forEach(option => option.addEventListener("click", () => {
+        selectedText = option.getElementsByTagName("p").item(0).innerHTML;
+        selectText.innerHTML = selectedText.substring(selectedText.indexOf("+"));
+        list.classList.toggle("hide");
+    }));
+}
+
+handleCountryList();
