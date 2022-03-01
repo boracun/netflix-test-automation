@@ -258,16 +258,6 @@ function isNumber(searchValue) {
     }
 }
 
-function facebook() {
-    window.open("Facebook.html");
-}
-
-function facebookLoginButton() {
-    console.log("aaa");
-    document.getElementById("fcLogin").disabled = true;
-    console.log( document.getElementById("fcLogin").disabled);
-    setTimeout(function(){document.getElementById("fcLogin").disabled = false;},1000);
-}
 function handleCountryList() {
     var selectField = document.getElementById("select-field");
     var selectText = document.getElementById("select-text");
