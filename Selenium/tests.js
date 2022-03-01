@@ -23,7 +23,7 @@ async function checkButtonDisableFacebookLogin() {
     await driver.get("http://localhost/netflix-test-automation/netflix-login-page");
 
     const actions = driver.actions({async: true});
-    await actions.move({x: 600, y: 550}).pause(1).perform();
+    await actions.move({x: 600, y: 525}).pause(1).perform();
     await actions.doubleClick().perform();
 
     await driver.sleep(1000);
