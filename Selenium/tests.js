@@ -10,7 +10,7 @@ runTestsOneByOne();
 async function runTestsOneByOne()
 {
     await checkButtonDisableFacebookLogin();
-    await checkCountryCodes();
+    //await checkCountryCodes();
     await checkLengthConstraints();
     await checkElementLoss();
     await checkAllASCII();
@@ -52,22 +52,21 @@ async function checkCountryCodes()
 {
     let driver = await new Builder().forBrowser("chrome").build();
     await driver.manage().window().maximize();
-    await driver.get("http://localhost/netflix-test-automation/netflix-login-page");
+    await driver.get("https://www.netflix.com/tr/Login");
 
-    await driver.findElement(By.id("email")).sendKeys(0);
-    await driver.findElement(By.id("select-field")).click();
-    var countries = await driver.findElements(By.className("country"));
-    await driver.findElement(By.id("select-field")).click();
+    await driver.findElement(By.name("userLoginId")).sendKeys(0);
+    await driver.findElement(By.className("ui-select-wrapper-link")).click();
+    var countries = await driver.findElements(By.xpath("//em"));
+    await driver.findElement(By.className("ui-select-wrapper-link")).click();
     
     for(let i = 0; i < countries.length; i++)
     {
-        await driver.findElement(By.id("select-field")).click();
+        await driver.findElement(By.className("ui-select-wrapper-link")).click();
         let expectedCode = await countries[i].getText().then(function(value) {
             return value;
         });
-        expectedCode = expectedCode.substring(expectedCode.indexOf("+"));
         await countries[i].click();
-        let actualCode = await driver.findElement(By.id("select-text")).getText().then(function(value) {
+        let actualCode = await driver.findElement(By.className("country-select-code")).getText().then(function(value) {
             return value;
         });
 
@@ -83,7 +82,7 @@ async function checkCountryCodes()
     }
     
     console.log("Test case #2 is successful.");
-    driver.quit();
+    await driver.quit();
 }
 
 //TEST CASE 3: Check that the length constraints for the input field are correct for the first 60 characters for email (Length between 5 and 50 is valid)
