@@ -10,10 +10,9 @@ runTestsOneByOne();
 async function mouseMovement() {
     let driver = await new Builder().forBrowser("chrome").build();
     await driver.manage().window().maximize();
-    await driver.get("file:///C:/Users/MONSTER/Desktop/All%20Files/Ders/CS458/Project%201/netflix-test-automation/netflix-login-page/index.html");
+    await driver.get("https://boracun.github.io/netflix-test-automation/netflix-login-page/");
     var element = await driver.findElement(By.id("fb-buttoon"));
     const actions = driver.actions({async: true});
-    //await actions.move(element).perform();
     await actions.move({x: 600, y: 550}).pause(1).perform();
     await actions.doubleClick().perform();
     
