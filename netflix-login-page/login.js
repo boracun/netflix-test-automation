@@ -25,9 +25,18 @@ function onRefresh() {
 function validate(){
     var e_mail= document.getElementById("email").value;
     var passw = document.getElementById("password").value;
+
+    let isEmail = checkIsEmail(e_mail);
+    if(!isEmail) {
+        let countryCode = document.getElementById("select-text").innerHTML;
+        e_mail = countryCode + e_mail;
+    }
+
+    console.log(e_mail);
+
     if ((e_mail.length <= 50 && e_mail.length >= 5) && (passw.length <= 60 && passw.length >= 4)) {
         if (registeredUsers[e_mail] === undefined) {
-            if (checkIsEmail(e_mail)) {
+            if (isEmail) {
                 sessionStorage.setItem("loginError", "true");
                 sessionStorage.setItem("bothError", "true");
                 sessionStorage.setItem("emailError", "false");
