@@ -7,3 +7,22 @@ In our project we have used node.js and javascript inorder to run Selenium so on
 
 To run tests, one needs to run the tests.js which is located in the Selenium directory. After running the file nothing needs to be done as the tests execute themselves since they are automated. Do not forget that inorder to run the tests your page needs to be served by the apache server at the localhost, since there is a test case that uses Facebook API. So xampp part is crucial inorder to run tests. And in each test case, http://localhost/netflix-test-automation/netflix-login-page web drives is produced by this URL.
 
+When using the page you can use these user credentials inorder to do a successfull login. Left part will go to email field and right part will go to password field.
+
+var registeredUsers = {
+    "bora@gmail.com": "verifyingallday",
+    "cagri@ug.bilkent.edu.tr": "999888",
+    "vural.d.a@hotmail.com": "159753",
+    "metehan@yahoo.com": "321321",
+    "+9005554448956": "coolphone",
+    "+12025550118": "usgreatagain",
+    "+930776589657": "afghanphone",
+    "+33934315771": "ngolokante",
+    "+4930662358542": "marcoreus",
+    "+9940552989772": "haydaraliyev",
+    "+559556202774": "alexdesouza10",
+    "+74012089072": "putinpls",
+    "+40257288908": "gheorghehagi",
+    "+34171515185": "torres",
+}
+
