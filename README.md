@@ -1,1 +1,1 @@
-netflix-test-automation
+In order to use the Facebook API, Xampp needs to installed. Through Xampp, a server that has the url of htpp:/localhost/80 is constructed. The project folder is copied into the  the Xampp/htdocs folder. By accessing localhost in your desired browser netflix login page clone is up and running.
