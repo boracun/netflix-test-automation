@@ -7,13 +7,26 @@ const { Actions } = require("selenium-webdriver/lib/input");
 
 runTestsOneByOne();
 
+async function mouseMovement() {
+    let driver = await new Builder().forBrowser("chrome").build();
+    await driver.manage().window().maximize();
+    await driver.get("file:///C:/Users/MONSTER/Desktop/All%20Files/Ders/CS458/Project%201/netflix-test-automation/netflix-login-page/index.html");
+    var element = await driver.findElement(By.id("fb-buttoon"));
+    const actions = driver.actions({async: true});
+    //await actions.move(element).perform();
+    await actions.move({x: 600, y: 550}).pause(1).perform();
+    await actions.doubleClick().perform();
+    
+}
+
 async function runTestsOneByOne()
 {
+    await mouseMovement();
     //await checkButtonDisableFacebookLogin();
     //await checkCountryCodes();
-    await checkLengthConstraints();
-    await checkElementLoss();
-    await checkAllASCII();
+    //await checkLengthConstraints();
+    //await checkElementLoss();
+    //await checkAllASCII();
 }
 
 //TEST CASE 1: The user should not be able to click the Facebook login button repeatedly
