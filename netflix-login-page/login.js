@@ -80,20 +80,20 @@ function showEmailError() {
             let insertedElement = document.createElement('div');
             insertedElement.className = "emailError";
             if (document.getElementById("email").value.length === 0) {
-                insertedElement.innerHTML = 'Lütfen geçerli bir telefon numarası veya e‑posta adresi girin.';
+                insertedElement.innerHTML = 'Please enter a valid phone number or Please enter a valid email.';
             }
             else {
-                insertedElement.innerHTML = 'Lütfen geçerli bir e‑posta adresi girin.';
+                insertedElement.innerHTML = 'Please enter a valid email.';
             }
             loginErrorDiv.appendChild(insertedElement);
         }
         else {
             let insertedElement = document.getElementsByClassName("emailError")[0];
             if (document.getElementById("email").value.length === 0) {
-                insertedElement.innerHTML = 'Lütfen geçerli bir telefon numarası veya e‑posta adresi girin.';
+                insertedElement.innerHTML = 'Please enter a valid phone number or Please enter a valid email.';
             }
             else {
-                insertedElement.innerHTML = 'Lütfen geçerli bir e‑posta adresi girin.';
+                insertedElement.innerHTML = 'Please enter a valid email.';
             }
         }
     }
@@ -110,7 +110,7 @@ function showPassError() {
             let loginErrorDiv = document.getElementById("pass-error-div");
             let insertedElement = document.createElement('div');
             insertedElement.className = "passError";
-            insertedElement.innerHTML = 'Parolanız 4 ila 60 karakter olmalıdır.';
+            insertedElement.innerHTML = 'Your password must contain between 4 and 60 characters.';
             loginErrorDiv.appendChild(insertedElement);
         }
     }
@@ -133,13 +133,13 @@ function showLoginError() {
         insertedElement.className = "loginError";
 
         if (sessionStorage.getItem("bothError") == "true") {
-            insertedElement.innerHTML = 'Bu e‑posta adresi ile bağlantılı bir hesap bulamadık. Lütfen yeniden deneyin ya da yeni bir hesap oluşturun.';
+            insertedElement.innerHTML = 'Sorry, we cannot find an account with this email address. Please try again or create a new account.';
         }
         else if (sessionStorage.getItem("emailError") == "true") {
-            insertedElement.innerHTML = 'Parola yanlış. Lütfen yeniden deneyin ya da parolanızı sıfırlayın.';
+            insertedElement.innerHTML = 'Incorrect password. Please try again or you can reset your password.';
         }
         else if (sessionStorage.getItem("numberError") == "true") {
-            insertedElement.innerHTML = 'Bu numara ile bağlantılı bir hesap bulamadık. Lütfen doğru ülke kodunun seçili olduğundan emin olun ya da e‑posta ile oturum açın.';
+            insertedElement.innerHTML = 'Sorry, we cannot find an account with this email address. Please try again or create a new account.';
         }
         loginErrorDiv.appendChild(insertedElement);
     }
@@ -158,20 +158,20 @@ function emailFieldChange() {
                     let insertedElement = document.createElement('div');
                     insertedElement.className = "emailError";
                     if (document.getElementById("email").value.length === 0) {
-                        insertedElement.innerHTML = 'Lütfen geçerli bir telefon numarası veya e‑posta adresi girin.';
+                        insertedElement.innerHTML = 'Please enter a valid phone number or Please enter a valid email.';
                     }
                     else {
-                        insertedElement.innerHTML = 'Lütfen geçerli bir e‑posta adresi girin.';
+                        insertedElement.innerHTML = 'Please enter a valid email.';
                     }
                     loginErrorDiv.appendChild(insertedElement);
                 }
                 else {
                     let insertedElement = document.getElementsByClassName("emailError")[0];
                     if (document.getElementById("email").value.length === 0) {
-                        insertedElement.innerHTML = 'Lütfen geçerli bir telefon numarası veya e‑posta adresi girin.';
+                        insertedElement.innerHTML = 'Please enter a valid phone number or Please enter a valid email.';
                     }
                     else {
-                        insertedElement.innerHTML = 'Lütfen geçerli bir e‑posta adresi girin.';
+                        insertedElement.innerHTML = 'Please enter a valid email.';
                     }
                 }
             }
@@ -187,20 +187,20 @@ function emailFieldChange() {
                     let insertedElement = document.createElement('div');
                     insertedElement.className = "emailError";
                     if (document.getElementById("email").value.length === 0) {
-                        insertedElement.innerHTML = 'Lütfen geçerli bir telefon numarası veya e‑posta adresi girin.';
+                        insertedElement.innerHTML = 'Please enter a valid phone number or Please enter a valid email.';
                     }
                     else {
-                        insertedElement.innerHTML = 'Lütfen geçerli bir telefon numarası girin.';
+                        insertedElement.innerHTML = 'Please enter a valid phone number.';
                     }
                     loginErrorDiv.appendChild(insertedElement);
                 }
                 else { //Detaileed kısım
                     let insertedElement = document.getElementsByClassName("emailError")[0];
                     if (document.getElementById("email").value.length === 0) {
-                        insertedElement.innerHTML = 'Lütfen geçerli bir telefon numarası veya e‑posta adresi girin.';
+                        insertedElement.innerHTML = 'Please enter a valid phone number or Please enter a valid email.';
                     }
                     else {
-                        insertedElement.innerHTML = 'Lütfen geçerli bir telefon numarası girin.';
+                        insertedElement.innerHTML = 'Please enter a valid phone number.';
                     }
                 }
             }
@@ -222,18 +222,18 @@ function emailUnfocused(){
                 insertedElement.className = "emailError";
                 if (checkIsEmail(document.getElementById("email").value)) {
                     if (document.getElementById("email").value.length === 0) {
-                        insertedElement.innerHTML = 'Lütfen geçerli bir telefon numarası veya e‑posta adresi girin.';
+                        insertedElement.innerHTML = 'Please enter a valid phone number or Please enter a valid email.';
                     }
                     else {
-                        insertedElement.innerHTML = 'Lütfen geçerli bir e‑posta adresi girin.';
+                        insertedElement.innerHTML = 'Please enter a valid email.';
                     }
                 }
                 else {
                     if (document.getElementById("email").value.length === 0) {
-                        insertedElement.innerHTML = 'Lütfen geçerli bir telefon numarası veya e‑posta adresi girin.';
+                        insertedElement.innerHTML = 'Please enter a valid phone number or Please enter a valid email.';
                     }
                     else {
-                        insertedElement.innerHTML = 'Lütfen geçerli bir telefon numarası girin.';
+                        insertedElement.innerHTML = 'Please enter a valid phone number.';
                     }
                 }
                 loginErrorDiv.appendChild(insertedElement);
@@ -250,7 +250,7 @@ function passFieldChange() {
                 let loginErrorDiv = document.getElementById("pass-error-div");
                 let insertedElement = document.createElement('div');
                 insertedElement.className = "passError";
-                insertedElement.innerHTML = 'Parolanız 4 ila 60 karakter olmalıdır.';
+                insertedElement.innerHTML = 'Your password must contain between 4 and 60 characters.';
                 loginErrorDiv.appendChild(insertedElement);
             }
         }
@@ -269,7 +269,7 @@ function passUnfocused(){
                 let loginErrorDiv = document.getElementById("pass-error-div");
                 let insertedElement = document.createElement('div');
                 insertedElement.className = "passError";
-                insertedElement.innerHTML = 'Parolanız 4 ila 60 karakter olmalıdır.';
+                insertedElement.innerHTML = 'Your password must contain between 4 and 60 characters.';
                 loginErrorDiv.appendChild(insertedElement);
             }
         }
