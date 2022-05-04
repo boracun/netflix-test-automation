@@ -32,7 +32,16 @@ async function checkButtonDisableFacebookLogin() {
     await driver.switchTo().window(windows[1]);
     await driver.sleep(1000);
     await driver.findElement(By.name("login")).click();
-    let value = await driver.findElement(By.name("login")).isEnabled();
+    let value;
+    while (true) {
+        try {
+            value = await driver.findElement(By.name("login")).isEnabled();
+            break;
+        }
+        catch (err) {
+            console.log(err);
+        }
+    }
 
     try
     {
