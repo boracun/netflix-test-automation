@@ -8,9 +8,7 @@ var registeredUsers = {
     "+930776589657": "afghanphone",
     "+33934315771": "ngolokante",
     "+4930662358542": "marcoreus",
-    "+9940552989772": "haydaraliyev",
     "+559556202774": "alexdesouza10",
-    "+74012089072": "putinpls",
     "+40257288908": "gheorghehagi",
     "+34171515185": "torres",
 }
